@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio - Desarrollador Odoo</title>
+    <style>
+        /* Estilos CSS (pueden ir en un archivo style.css separado si lo prefieres) */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #007bff; /* Color azul de Odoo */
+            color: white;
+            padding: 1.5em 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 5px;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 2em 0;
+        }
+        section {
+            background-color: white;
+            padding: 2em;
+            margin-bottom: 2em;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        h2 {
+            color: #007bff;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 0.5em;
+            margin-bottom: 1em;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1em;
+        }
+        .skill-item {
+            background-color: #e9f5ff;
+            padding: 1em;
+            border-left: 4px solid #007bff;
+            border-radius: 4px;
+        }
+        .project-card {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 1.5em;
+            margin-bottom: 1.5em;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .project-card h3 {
+            color: #007bff;
+            margin-top: 0;
+        }
+        .project-card a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #0056b3;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .project-card a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1.5em 0;
+            margin-top: 2em;
+        }
+        .contact-info p {
+            margin: 0.5em 0;
+        }
+        .highlight {
+            color: #007bff;
+            font-weight: bold;
+            cursor: pointer; /* Para indicar que es interactivo */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>[Tu Nombre Completo]</h1>
+        <p>Desarrollador de Módulos Odoo & Consultor Técnico</p>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>Acerca de Mí</h2>
+            <p>Soy un desarrollador apasionado por el ecosistema Odoo, con experiencia en el diseño, desarrollo e implementación de módulos personalizados que optimizan los procesos de negocio. Mi enfoque es crear soluciones robustas y escalables que se integren perfectamente con las funcionalidades estándar de Odoo.</p>
+            <p>He trabajado en diversas versiones de Odoo, desde la v12 hasta la última, aplicando las mejores prácticas de desarrollo y asegurando la calidad del código. Me especializo en la adaptación de Odoo a las necesidades específicas de cada cliente.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Habilidades Técnicas</h2>
+            <div class="skills-grid">
+                <div class="skill-item">Python</div>
+                <div class="skill-item">Odoo Framework (ORM, API)</div>
+                <div class="skill-item">XML (Views, Reports, Data)</div>
+                <div class="skill-item">PostgreSQL</div>
+                <div class="skill-item">JavaScript (Odoo Web Client)</div>
+                <div class="skill-item">QWeb Templates</div>
+                <div class="skill-item">Git & GitHub</div>
+                <div class="skill-item">Despliegue & Mantenimiento Odoo</div>
+                <div class="skill-item">SQL</div>
+                <div class="skill-item">Linux</div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Proyectos Destacados</h2>
+            <div class="project-card">
+                <h3>Módulo de Gestión de Inventario Avanzado</h3>
+                <p>Desarrollo de un módulo para Odoo 15 que añade funcionalidades de gestión de lotes y números de serie personalizados, integración con escáneres de código de barras y reportes de trazabilidad en tiempo real.</p>
+                <a href="https://github.com/tu-usuario/nombre-del-modulo-inventario" target="_blank">Ver en GitHub</a>
+            </div>
+            <div class="project-card">
+                <h3>Integración Odoo - Pasarela de Pago Externa</h3>
+                <p>Implementación de un conector para Odoo 16 que permite la sincronización de pedidos y pagos con una pasarela de pago externa, optimizando el proceso de venta online.</p>
+                <a href="https://github.com/tu-usuario/nombre-del-modulo-pago" target="_blank">Ver en GitHub</a>
+            </div>
+            <div class="project-card">
+                <h3>Reportes Financieros Personalizados (QWeb)</h3>
+                <p>Creación de reportes contables específicos en Odoo 14 utilizando QWeb, adaptados a las normativas locales y las necesidades internas del departamento financiero.</p>
+                <a href="https://github.com/tu-usuario/nombre-del-modulo-reportes" target="_blank">Ver en GitHub</a>
+            </div>
+            <p>¡Explora más de mis contribuciones en mi perfil de <a href="https://github.com/tu-usuario" target="_blank">GitHub</a>!</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contacto</h2>
+            <div class="contact-info">
+                <p>Estoy abierto a nuevas oportunidades y colaboraciones. No dudes en contactarme.</p>
+                <p>Email: <a href="mailto:tu.email@example.com">tu.email@example.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/tu-perfil-linkedin" target="_blank">linkedin.com/in/tu-perfil-linkedin</a></p>
+                <p>GitHub: <a href="https://github.com/tu-usuario" target="_blank">github.com/tu-usuario</a></p>
+            </div>
+            <p>¡Haz clic en mi nombre en el encabezado para ver un mensaje! <span class="highlight" id="nameHighlight">[Tu Nombre Completo]</span></p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2023 [Tu Nombre]. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // JavaScript (pueden ir en un archivo script.js separado si lo prefieres)
+        document.addEventListener('DOMContentLoaded', function() {
+            const nameHighlight = document.getElementById('nameHighlight');
+            if (nameHighlight) {
+                nameHighlight.addEventListener('click', function() {
+                    alert('¡Gracias por visitar mi portafolio de desarrollo Odoo! Espero que encuentres mis proyectos interesantes.');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
