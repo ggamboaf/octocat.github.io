@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Guía de Uso - Integración Odoo - Pasarela de Pago Externa</title>
+            <title>Guía de Uso - Módulo de Gestión de Inventario Avanzado</title>
                 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
                     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
                         <style>
@@ -15,44 +15,45 @@
                                                         <body class="bg-light">
                                                             <header class="bg-odoo text-white text-center py-4 shadow-sm">
                                                                     <h1 class="display-5">Guía de Uso</h1>
-                                                                            <p class="lead">Integración Odoo - Pasarela de Pago Externa</p>
+                                                                            <p class="lead">Módulo de Gestión de Inventario Avanzado</p>
                                                                                 </header>
 
                                                                                     <div class="container my-5">
                                                                                         <section id="introduction" class="card shadow-sm mb-4 p-4">
                                                                                                 <h2 class="card-title text-odoo border-bottom pb-2">Introducción</h2>
                                                                                                         <div class="card-body">
-                                                                                                            <p>Esta guía le ayudará a configurar y utilizar el conector entre Odoo y la pasarela de pago externa para procesar transacciones en línea de manera eficiente y segura.</p>
+                                                                                                            <p>Esta guía proporciona instrucciones detalladas para la instalación, configuración y uso del Módulo de Gestión de Inventario Avanzado en Odoo. El módulo está diseñado para optimizar la trazabilidad de productos mediante la gestión de lotes y números de serie.</p>
                                                                                                         </div>
                                                                                                     </section>
                                                                                                     <section id="installation" class="card shadow-sm mb-4 p-4">
                                                                                                             <h2 class="card-title text-odoo border-bottom pb-2">1. Instalación</h2>
                                                                                                                     <div class="card-body">
                                                                                                                         <ol>
-                                                                                                                            <li>Descargue el módulo del portal de <a href="https://apps.odoo.com/apps/modules/16.0/tu_modulo_pago" target="_blank">Odoo Apps</a>.</li>
-                                                                                                                            <li>Copie la carpeta del módulo en el directorio de addons de Odoo.</li>
+                                                                                                                            <li>Descargue el módulo desde <a href="https://apps.odoo.com/apps/modules/16.0/tu_modulo_inventario" target="_blank">Odoo Apps</a>.</li>
+                                                                                                                            <li>Extraiga el archivo ZIP y copie la carpeta del módulo en el directorio de addons de su instalación de Odoo.</li>
                                                                                                                             <li>Reinicie el servidor de Odoo.</li>
-                                                                                                                            <li>Busque el módulo en la lista de aplicaciones de Odoo y haga clic en **Instalar**.</li>
+                                                                                                                            <li>Vaya a la aplicación **Apps** en su instancia de Odoo y busque el módulo por su nombre.</li>
+                                                                                                                            <li>Haga clic en **Instalar**.</li>
                                                                                                                         </ol>
                                                                                                                     </div>
                                                                                                                 </section>
                                                                                                                 <section id="configuration" class="card shadow-sm mb-4 p-4">
                                                                                                                         <h2 class="card-title text-odoo border-bottom pb-2">2. Configuración</h2>
                                                                                                                             <div class="card-body">
-                                                                                                                                <p>Para configurar el conector:</p>
+                                                                                                                                <p>Para configurar las funcionalidades del módulo:</p>
                                                                                                                                 <ul>
-                                                                                                                                    <li>**Claves de API:** En la configuración del módulo, ingrese sus credenciales (clave pública y clave secreta) obtenidas desde su cuenta en la pasarela de pago.</li>
-                                                                                                                                    <li>**Métodos de Pago:** Configure los métodos de pago que desea ofrecer a sus clientes.</li>
+                                                                                                                                    <li>**Habilitar Lotes y Números de Serie:** Vaya a **Inventario > Configuración > Ajustes** y active las opciones "Gestión de Lotes" y "Gestión de Números de Serie".</li>
+                                                                                                                                    <li>**Configuración de Productos:** En la ficha de cada producto, configure si utiliza lotes o números de serie.</li>
                                                                                                                                 </ul>
                                                                                                                             </div>
                                                                                                                         </section>
                                                                                                                         <section id="usage" class="card shadow-sm mb-4 p-4">
                                                                                                                             <h2 class="card-title text-odoo border-bottom pb-2">3. Uso Básico</h2>
                                                                                                                             <div class="card-body">
-                                                                                                                                <p>Una vez configurado, los clientes podrán seleccionar esta pasarela de pago al realizar pedidos en su sitio web de Odoo. Los pagos se sincronizarán automáticamente con su instancia de Odoo.</p>
+                                                                                                                                <p>Durante las operaciones de recepción y entrega de productos, el sistema le pedirá que ingrese los lotes o números de serie correspondientes.</p>
                                                                                                                                 <ul>
-                                                                                                                                    <li>**Procesamiento de Pagos:** El sistema creará un pago asociado al pedido y actualizará su estado.</li>
-                                                                                                                                    <li>**Conciliación:** Los pagos recibidos se conciliarán automáticamente con las facturas correspondientes.</li>
+                                                                                                                                    <li>**Recepción de Productos:** Al validar una recepción, aparecerá una ventana emergente para registrar los lotes/números de serie.</li>
+                                                                                                                                    <li>**Informes de Trazabilidad:** Use el menú de informes para generar reportes que le permitan rastrear el origen y destino de cada lote o número de serie.</li>
                                                                                                                                 </ul>
                                                                                                                             </div>
                                                                                                                         </section>

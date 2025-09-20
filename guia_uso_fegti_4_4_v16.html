@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía de Uso - Módulo de Gestión de Inventario Avanzado</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        .bg-odoo {
+            background-color: #007bff !important;
+        }
+    </style>
+</head>
+<body class="bg-light">
+<header class="bg-odoo text-white text-center py-4 shadow-sm">
+    <h1 class="display-5">Guía de Uso</h1>
+    <p class="lead">Módulo de Gestión de Inventario Avanzado</p>
+</header>
+
+<div class="container my-5">
+    <section id="introduction" class="card shadow-sm mb-4 p-4">
+        <h2 class="card-title text-odoo border-bottom pb-2">Introducción</h2>
+        <div class="card-body">
+            <p>Esta guía proporciona instrucciones detalladas para la instalación, configuración y uso del Módulo de Facturación Electrónica GTI v4.4 para Costa Rica en Odoo. Este módulo permite la integración entre Odoo y los servicios de GTI Costa Rica, facilitando la automatización de procesos relacionados con facturación electrónica, validación de documentos tributarios y comunicación con la plataforma del Ministerio de Hacienda. </p>
+        </div>
+    </section>
+    <section id="installation" class="card shadow-sm mb-4 p-4">
+        <h2 class="card-title text-odoo border-bottom pb-2">1. Instalación</h2>
+        <div class="card-body">
+            <ol>
+                <li>Descargue el módulo desde <a href="https://apps.odoo.com/apps/modules/16.0/tu_modulo_inventario" target="_blank">Odoo Apps</a>.</li>
+                <li>Extraiga el archivo ZIP y copie la carpeta del módulo en el directorio de addons de su instalación de Odoo.</li>
+                <li>Reinicie el servidor de Odoo.</li>
+                <li>Vaya a la aplicación **Apps** en su instancia de Odoo y busque el módulo por su nombre.</li>
+                <li>Haga clic en **Instalar**.</li>
+            </ol>
+        </div>
+    </section>
+    <section id="configuration" class="card shadow-sm mb-4 p-4">
+        <h2 class="card-title text-odoo border-bottom pb-2">2. Configuración</h2>
+        <div class="card-body">
+            <p>Para configurar las funcionalidades del módulo:</p>
+            <h4 class="card-title text-odoo border-bottom pb-2">Ajustes</h4>
+            <strong> Vaya a  Ajustes > GTI</strong>
+            <ul>
+                <li>
+                    <h4 class="card-title text-odoo border-bottom pb-2">Configuración de cuenta de GTI</h4>
+                    A continuación debes rellenar los campos obligatorios que obtienes del portal de GTI.
+                    <ul>
+                        <li>Número de Cuenta</li>
+                        <li>Usuario</li>
+                        <li>Clave</li>
+                        <li>Código de actividad</li>
+                    </ul>
+                </li>
+                <li>
+                    <h4 class="card-title text-odoo border-bottom pb-2">Opción de envío manual de documentos</h4>
+                    Si habilita esta opción, el envío de todo documento a GTI pasa a hacer de forma manual mediante un botón que se visualiza en la parte superior del formulario de los documentos con el texto "Enviar a GTI",
+                    para habilitar este botón se debe seleccionar el check con el texto "Enviar a GTI" que se encuentra en el cuerpo del formulario de los documentos.
+                </li>
+                <li>
+                    <h4 class="card-title text-odoo border-bottom pb-2">Configuración de APIs</h4>
+                    <ul>
+                        <li><h6 class="card-title text-odoo border-bottom pb-2">Configuración API Hacienda</h6></li>
+                        En este campo se ingresa la URL de API de hacienda que se utiliza en consultas para obtener el nombre, actividades económicas y poder agregar las exoneraciones del cliente.
+                        <br>
+                        La URL por defecto es https://api.hacienda.go.cr
+                        <br>
+                        También se utiliza para poder consultar el tipo de cambio.
+                        <li><h6 class="card-title text-odoo border-bottom pb-2">Configuración API BCCR</h6></li>
+                        Este servicio por defecto viene deshabilitado.
+                        <br>
+                        La utilidad principal de este servicio es funcionar como segunda opción a la hora de actualizar los tipos de cambio.
+                        <br>
+                        <strong>Si se habilita este servicio, pasa a ser el principal a la hora de actualizar el tipo de cambio.</strong>
+                        <br>
+                        El beneficio de este servivio es que maneja mas tipos de cambio aparte del Dólar de los Estados Unidos de América.
+                        <br>
+                        Para poder habilitar este serivio debes serguir los siguentes pasos:
+                        <ul>
+                            <li>La URL por defecto es https://apim.bccr.fi.cr/SDDE</li>
+                            <li><a href="https://sdd.bccr.fi.cr/es/IndicadoresEconomicos/Inicio/" target="_blank"  >Ingresar a esta página en la parte superior e ingresar donde dice Iniciar sesión.<i class="bi bi-box-arrow-up-right"></i></a></li>
+                            <li>Después ingresar donde dice Registrarse y completar el registro.</li>
+                            <li>Al finalizar el registro y entrar al sistema con tu usuario, debes ingresar donde dice "Mi perfil" y en la parte de abajo en el apartado de Generar token debes darle al botón "Generar"</li>
+                            <li>Al generar el token debe de aparecer una ventana de notificación donde va a estar un botón con el texto "Copiar token".
+                                <br>
+                                Después de presionar dicho botón, debes pegar dicha información en el campo con el nombre "Token" en odoo</li>
+                        </ul>
+
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <h4 class="card-title text-odoo border-bottom pb-2">Módulo Facturación/Contabilidad</h4>
+            <strong>Vaya a Facturación/Contabilidad > Configuración</strong>
+            <ul>
+                <li>
+                    <h4 class="card-title text-odoo border-bottom pb-2">Facturación > Condiciones de pago</h4>
+                    Tome en cuenta esto si ya tiene "Condiciones de pago" creadas o si va a crear nuevas
+                    <br>
+                    <ul>
+                        <li>Debe seleccionar un "Tipo de pago"</li>
+                        <li>Si selecciona el tipo de pago es  "Crédito", debe asignar un plazo en días para el pago</li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <h4 class="card-title text-odoo border-bottom pb-2">Contabilidad > Impuestos</h4>
+                    Tome en cuenta esto si ya tiene "Impuestos" creados o si va a crear nuevos
+                    <br>
+                    <ul>
+                        <li>Debe seleccionar un "Código de impuesto"</li>
+                        <li>Debe seleccionar un "Código de la tarifa del impuesto"</li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <h4 class="card-title text-odoo border-bottom pb-2">GTI > Actividades económicas</h4>
+                    Las actividades económicas se crean solas cuando se crea al cliente, pero si el servicio de hacienda está caído, se ocupa crear las actividades económicas manualmente.
+                    <br>
+                    <ul>
+                        <li>Debe agregar el código y la descripción de la actividad</li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <h4 class="card-title text-odoo border-bottom pb-2">GTI > Unidades de medida</h4>
+                    Aquí se crean y editan las unidades de medida
+                    <br>
+                    <ul>
+                        <li>Debe agregar el código, la descripción y el símbolo de la unidad de medida</li>
+                        <li>En el siguiente <a href="https://atv.hacienda.go.cr/ATV/ComprobanteElectronico/frmAnexosyEstructuras.aspx#" target="_blank"  >enlace</a> podrá encontrar la documentación sobre las unidades de medida que se encuentran en el documento llamado ANEXOS Y ESTRUCTURAS_V4.4.pdf </li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <h4 class="card-title text-odoo border-bottom pb-2">GTI > Cabys</h4>
+                    Aqui se crean y editan los códigos Cabys
+                    <br>
+                    <ul>
+                        <li>Debe agregar el código, la descripción del bien o servicio y el símbolo del cabys</li>
+                        <li>En el siguiente <a href="https://atv.hacienda.go.cr/ATV/ComprobanteElectronico/frmAnexosyEstructuras.aspx#" target="_blank"  >enlace</a> podra encontrar la documentacion las unidades de medida se encuentran en el documento llamado   ANEXOS Y ESTRUCTURAS_V4.4.pdf </li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <h4 class="card-title text-odoo border-bottom pb-2">GTI > Medios de pago</h4>
+                    Aqui se crean y editan los medios de pago
+                    <br>
+                    <ul>
+                        <li>Debe agregar el código, la Descripción del medio de pago</li>
+                        <li>En el siguiente <a href="Instructivo técnico para el uso del API Carga Factura 4.4.pdf" target="_blank"  >enlace</a> podra encontrar la documentacion los medios de pago</li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <h4 class="card-title text-odoo border-bottom pb-2">GTI > Provincias</h4>
+                    Aqui se crean y editan las provincias
+                    <br>
+                    <ul>
+                        <li>Debe agregar el código, el nombre de la provincia</li>
+                        <li>En el siguiente <a href="Instructivo técnico para el uso del API Carga Factura 4.4.pdf" target="_blank"  >enlace</a> podra encontrar la documentacion las provincias</li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <h4 class="card-title text-odoo border-bottom pb-2">GTI > Cantónes</h4>
+                    Aqui se crean y editan los cantónes
+                    <br>
+                    <ul>
+                        <li>Debe agregar el código, el nombre del cantón y la provincia</li>
+                        <li>En el siguiente <a href="Instructivo técnico para el uso del API Carga Factura 4.4.pdf" target="_blank"  >enlace</a> podra encontrar la documentacion los cantónes</li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <h4 class="card-title text-odoo border-bottom pb-2">GTI > Distritos</h4>
+                    Aqui se crean y editan los distritos
+                    <br>
+                    <ul>
+                        <li>Debe agregar el código, el nombre del distrito y el cantón</li>
+                        <li>En el siguiente <a href="Instructivo técnico para el uso del API Carga Factura 4.4.pdf" target="_blank"  >enlace</a> podra encontrar la documentacion los distritos</li>
+                    </ul>
+                </li>
+            </ul>
+            <br>
+            <h4 class="card-title text-odoo border-bottom pb-2">Módulo Facturación/Contabilidad</h4>
+            <strong>Vaya a Facturación/Contabilidad > GTI</strong>
+            <ul>
+                <li>
+                    <h4 class="card-title text-odoo border-bottom pb-2">Sucursal > Sucursales</h4>
+                    Aquí se crean y editan las sucursales
+                    <br>
+                    <ul>
+                        <li>Debe agregar el nombre de la sucursal</li>
+                        <li>Debe agregar la provincia, el cantón, el distrito</li>
+                        <li>Debe agregar el identificador de sucursal que se optiene desde GTI</li>
+                        <li>Debe agregar el teléfono y el Correo</li>
+                        <li>
+                            El apartado de "Terminales" tambien se puede entender como cajas que se crean desde GTI
+                            <ul>
+                                <li>Debe agregar el identificador de terminal</li>
+                                <li>Debe agregar un nombre</li>
+                                <li>Debe agregar el ususario de odoo asociado a esa terminar</li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section id="usage" class="card shadow-sm mb-4 p-4">
+        <h2 class="card-title text-odoo border-bottom pb-2">3. Uso Básico</h2>
+        <div class="card-body">
+            <h4 class="card-title text-odoo border-bottom pb-2">Módulo Facturación/Contabilidad</h4>
+            <strong>Vaya a Facturación/Contabilidad > Clientes</strong>
+            <ul>
+                <li>
+                    <h4 class="card-title text-odoo border-bottom pb-2">Clientes</h4>
+                    Aquí se crean y editan los clientes
+                    <br>
+                    <ul>
+                        <li>
+                            Al darle en el botón con el texto "Nuevo", se abre una ventana para poder crear al cliente
+                            <ul>
+                                <li>Se debe agregar la identificación</li>
+                                <li>Se debe agregar el teléfono</li>
+                                <li>Se debe agregar el correo</li>
+                            </ul>
+                        </li>
+                        <br>
+                        <li>
+                            Después de agregar la anterior informacion se debe dar al botón con el texto "Buscar", y esto rellena el resto de información consultando a Hacienda
+                        </li>
+                        <li>
+                            Después de darle al botón con el texto "Buscar", se debe dar al botón con el texto "Crear" para poder agregar al cliente.
+                        </li>
+                        <li>Esto te llevará al formulario del cliente recién creado</li>
+                        <li>En el formulario podra modificar datos pertinentes del cliente</li>
+                    </ul>
+                </li>
+                <br>
+                <li>
+                    <h4 class="card-title text-odoo border-bottom pb-2">Productos</h4>
+                    Aquí se crean y editan los productos
+                    <br>
+                    <ul>
+                        <li>
+                            Al darle en el botón con el texto "Nuevo", se abre una ventana para poder crear el producto
+                            <ul>
+                                <li>Se debe agregar el nombre</li>
+                                <li>Se debe agregar el cabys</li>
+                                <li>Se debe agregar la unidad de medida</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <div class="text-center mt-4">
+        <a href="index.html" class="btn btn-primary"><i class="bi bi-arrow-left"></i> Volver al Portafolio</a>
+    </div>
+</div>
+
+<footer class="bg-dark text-white text-center py-4 mt-5">
+    <p class="mb-0">
+        &copy; 2025 Greivin Andrey Gamboa Flores. Todos los derechos reservados.
+    </p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
